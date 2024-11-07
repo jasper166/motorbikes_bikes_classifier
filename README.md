@@ -23,3 +23,4 @@ python train.py --data_root data/train
 ```
 python predict.py --checkpoint_dir checkpoints --image data/test/image.jpg
 ``` 
+# motocycles_bicycles_classifier
