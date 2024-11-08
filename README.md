@@ -4,7 +4,7 @@ data    __train __xedap_0000.jpg
                 __.....   
         __test 
 ```
-- dowload data
+- download data
 ```
 chua cap nhat
 ```
@@ -15,7 +15,7 @@ Khuyến khích sử dụng anaconda
 ```
 
 ```
-python train.py --data_root data/train
+python train.py --data_root datasets/train
 ```
 
 # 3. Test
@@ -23,5 +23,5 @@ python train.py --data_root data/train
 ```
 python predict.py --checkpoint_dir checkpoints --image data/test/image.jpg
 ``` 
-# motocycles_bicycles_classifier
+# motorcycles_bicycles_classifier
 # motocycles_bicycles_classifier
