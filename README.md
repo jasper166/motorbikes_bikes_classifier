@@ -25,3 +25,4 @@ python predict.py --checkpoint_dir checkpoints --image data/test/image.jpg
 ``` 
 # motorcycles_bicycles_classifier
 # motocycles_bicycles_classifier
+# motorbikes_bikes_classifier

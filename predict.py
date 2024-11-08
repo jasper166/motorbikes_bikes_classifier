@@ -93,8 +93,8 @@ def main(args):
     folder_xemay = os.path.join(args.dir_root, 'test/xemay')
 
     # Lấy danh sách các tệp tin trong thư mục xedap và xemay
-    images_xedap = [os.path.join(folder_xedap, filename) for filename in os.listdir(folder_xedap) if filename.endswith('.jpg')]
-    images_xemay = [os.path.join(folder_xemay, filename) for filename in os.listdir(folder_xemay) if filename.endswith('.jpg')]
+    images_xedap = [os.path.join(folder_xedap, filename) for filename in os.listdir(folder_xedap) if (filename.endswith('.jpg') or filename.endswith('.jpeg'))]
+    images_xemay = [os.path.join(folder_xemay, filename) for filename in os.listdir(folder_xemay) if (filename.endswith('.jpg') or filename.endswith('.jpeg'))]
 
     # Kết hợp danh sách ảnh từ hai thư mục
     all_images = images_xedap + images_xemay
@@ -112,8 +112,10 @@ def main(args):
         pre_labels.append(dict_class[label])
         gt_label = dict_class.get(os.path.basename(os.path.dirname(image)), -1)
         gt_labels.append(gt_label)
-        # print(image, label)
-    # print('path_image: {} \nlabel : {} \nxac xuat: {}'.format(IMAGE, label, score))
+        print(image, label)
+
+    label, score = model.predict(IMAGE)
+    print('path_image: {} \nlabel : {} \nprobability: {}'.format(IMAGE, label, score * 100))
 
     # Tổng số mẫu
     total_samples = len(gt_labels)
@@ -127,7 +129,7 @@ def main(args):
     # Độ chính xác sẽ là một số từ 0 đến 1, hoặc có thể nhân 100 để biểu diễn dưới dạng phần trăm.
     accuracy_percentage = accuracy * 100
 
-    print(f"Độ chính xác của mô hình là: {accuracy_percentage:.2f}%")
+    # print(f"Accuracy rate: {accuracy_percentage:.2f}%")
     
 def get_args_parser():
     parser = argparse.ArgumentParser()

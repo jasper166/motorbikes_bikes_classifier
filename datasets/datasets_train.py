@@ -21,13 +21,13 @@ class Datasets(data.Dataset) :
             # transforms.RandomRotation(degrees=30),
             # transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2)
         ])
-        path_images = [] # đường dẫn  data/train/xemay/xemay_0000.jpg
+        path_images = [] # đường dẫn  data/train/xemay/xemay_0.jpeg
         labels = [] # 0 1 0 1 0 1 0 1 1 1 1  0 0 0 1 0 1 0 1 0 0 
         dict_class = {'xedap': 0, 'xemay' : 1}
         
         for label in os.listdir(self.path_data) : 
             for fname in os.listdir(os.path.join(self.path_data, label)) :
-                if '.jpg' in fname or '.png' in fname :
+                if '.jpeg' in fname or '.png' in fname :
                     path_images.append(os.path.join(self.path_data, label, fname))
                     labels.append(dict_class[label]) 
         
